@@ -58,13 +58,48 @@ if (!$canEdit && Factory::getApplication()->getIdentity()->authorise('core.edit.
 		<tr>
 			<th><?php echo Text::_('COM_WEB357TEST_FORM_LBL_RECIPE_DIFFICULTY'); ?></th>
 			<td>
-			<?php
-
-			if (!empty($this->item->difficulty) || $this->item->difficulty === 0)
-			{
-				echo Text::_('COM_WEB357TEST_RECIPES_DIFFICULTY_OPTION_' . preg_replace('/[^A-Za-z0-9\_-]/', '',strtoupper(str_replace(' ', '_',$this->item->difficulty))));
-			}
-			?></td>
+				<?php
+					// Check the difficulty level and display the corresponding icons
+					$difficulty = $this->item->difficulty;
+					switch ($difficulty) {
+						case 'easy':
+							echo '<span class="fa fa-star" aria-hidden="true" title="' . Text::_('COM_WEB357TEST_RECIPES_DIFFICULTY_OPTION_EASY') . '">
+									<span class="sr-only">' . Text::_('COM_WEB357TEST_RECIPES_DIFFICULTY_OPTION_EASY') . '</span>
+								</span>';
+							echo '<span class="fa fa-star" aria-hidden="true" style="visibility:hidden;">
+									<span class="sr-only">' . Text::_('COM_WEB357TEST_RECIPES_DIFFICULTY_OPTION_EASY') . '</span>
+								</span>';
+							echo '<span class="fa fa-star" aria-hidden="true" style="visibility:hidden;">
+									<span class="sr-only">' . Text::_('COM_WEB357TEST_RECIPES_DIFFICULTY_OPTION_EASY') . '</span>
+								</span>';
+							break;
+						case 'medium':
+							echo '<span class="fa fa-star" aria-hidden="true" title="' . Text::_('COM_WEB357TEST_RECIPES_DIFFICULTY_OPTION_MEDIUM') . '">
+									<span class="sr-only">' . Text::_('COM_WEB357TEST_RECIPES_DIFFICULTY_OPTION_MEDIUM') . '</span>
+								</span>';
+							echo '<span class="fa fa-star" aria-hidden="true" title="' . Text::_('COM_WEB357TEST_RECIPES_DIFFICULTY_OPTION_MEDIUM') . '">
+									<span class="sr-only">' . Text::_('COM_WEB357TEST_RECIPES_DIFFICULTY_OPTION_MEDIUM') . '</span>
+								</span>';
+							echo '<span class="fa fa-star" aria-hidden="true" style="visibility:hidden;">
+									<span class="sr-only">' . Text::_('COM_WEB357TEST_RECIPES_DIFFICULTY_OPTION_MEDIUM') . '</span>
+								</span>';
+							break;
+						case 'hard':
+							echo '<span class="fa fa-star" aria-hidden="true" title="' . Text::_('COM_WEB357TEST_RECIPES_DIFFICULTY_OPTION_HARD') . '">
+									<span class="sr-only">' . Text::_('COM_WEB357TEST_RECIPES_DIFFICULTY_OPTION_HARD') . '</span>
+								</span>';
+							echo '<span class="fa fa-star" aria-hidden="true" title="' . Text::_('COM_WEB357TEST_RECIPES_DIFFICULTY_OPTION_HARD') . '">
+									<span class="sr-only">' . Text::_('COM_WEB357TEST_RECIPES_DIFFICULTY_OPTION_HARD') . '</span>
+								</span>';
+							echo '<span class="fa fa-star" aria-hidden="true" title="' . Text::_('COM_WEB357TEST_RECIPES_DIFFICULTY_OPTION_HARD') . '">
+									<span class="sr-only">' . Text::_('COM_WEB357TEST_RECIPES_DIFFICULTY_OPTION_HARD') . '</span>
+								</span>';
+							break;
+						default:
+							echo '<span></span>'; // Default
+					}
+				?>
+			</td>
 		</tr>
 
 		<tr>

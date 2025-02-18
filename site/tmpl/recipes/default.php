@@ -140,7 +140,47 @@ $wa->useStyle('com_web357test.list');
 						<?php echo $item->cooking_time; ?>
 					</td>
 					<td>
-						<?php echo $item->difficulty; ?>
+						<?php 
+							// Check the difficulty level and display the corresponding icons
+							$difficulty = $item->difficulty;
+							switch ($difficulty) {
+								case 'easy':
+									echo '<span class="fa fa-star" aria-hidden="true" title="' . Text::_('COM_WEB357TEST_RECIPES_DIFFICULTY_OPTION_EASY') . '">
+											<span class="sr-only">' . Text::_('COM_WEB357TEST_RECIPES_DIFFICULTY_OPTION_EASY') . '</span>
+										</span>';
+									echo '<span class="fa fa-star" aria-hidden="true" style="visibility:hidden;">
+											<span class="sr-only">' . Text::_('COM_WEB357TEST_RECIPES_DIFFICULTY_OPTION_EASY') . '</span>
+										</span>';
+									echo '<span class="fa fa-star" aria-hidden="true" style="visibility:hidden;">
+											<span class="sr-only">' . Text::_('COM_WEB357TEST_RECIPES_DIFFICULTY_OPTION_EASY') . '</span>
+										</span>';
+									break;
+								case 'medium':
+									echo '<span class="fa fa-star" aria-hidden="true" title="' . Text::_('COM_WEB357TEST_RECIPES_DIFFICULTY_OPTION_MEDIUM') . '">
+											<span class="sr-only">' . Text::_('COM_WEB357TEST_RECIPES_DIFFICULTY_OPTION_MEDIUM') . '</span>
+										</span>';
+									echo '<span class="fa fa-star" aria-hidden="true" title="' . Text::_('COM_WEB357TEST_RECIPES_DIFFICULTY_OPTION_MEDIUM') . '">
+											<span class="sr-only">' . Text::_('COM_WEB357TEST_RECIPES_DIFFICULTY_OPTION_MEDIUM') . '</span>
+										</span>';
+									echo '<span class="fa fa-star" aria-hidden="true" style="visibility:hidden;">
+											<span class="sr-only">' . Text::_('COM_WEB357TEST_RECIPES_DIFFICULTY_OPTION_MEDIUM') . '</span>
+										</span>';
+									break;
+								case 'hard':
+									echo '<span class="fa fa-star" aria-hidden="true" title="' . Text::_('COM_WEB357TEST_RECIPES_DIFFICULTY_OPTION_HARD') . '">
+											<span class="sr-only">' . Text::_('COM_WEB357TEST_RECIPES_DIFFICULTY_OPTION_HARD') . '</span>
+										</span>';
+									echo '<span class="fa fa-star" aria-hidden="true" title="' . Text::_('COM_WEB357TEST_RECIPES_DIFFICULTY_OPTION_HARD') . '">
+											<span class="sr-only">' . Text::_('COM_WEB357TEST_RECIPES_DIFFICULTY_OPTION_HARD') . '</span>
+										</span>';
+									echo '<span class="fa fa-star" aria-hidden="true" title="' . Text::_('COM_WEB357TEST_RECIPES_DIFFICULTY_OPTION_HARD') . '">
+											<span class="sr-only">' . Text::_('COM_WEB357TEST_RECIPES_DIFFICULTY_OPTION_HARD') . '</span>
+										</span>';
+									break;
+								default:
+									echo '<span></span>'; // Default
+							}
+						?>
 					</td>
 					<td>
 						<?php echo $item->serving_size; ?>
