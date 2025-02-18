@@ -83,6 +83,9 @@ class RecipesModel extends ListModel
 		$context = $this->getUserStateFromRequest($this->context.'.filter.search', 'filter_search');
 		$this->setState('filter.search', $context);
 
+		$difficulty = $this->getUserStateFromRequest($this->context . '.filter.difficulty', 'filter_difficulty');
+		$this->setState('filter.difficulty', $difficulty);
+
 		// Split context into component and optional section
 		if (!empty($context))
 		{
@@ -181,6 +184,13 @@ class RecipesModel extends ListModel
 				
 			}
 		}
+
+		// Filter by difficulty
+		$difficulty = $this->getState('filter.difficulty');
+		if (!empty($difficulty))
+		{
+			$query->where($db->quoteName('a.difficulty') . ' = ' . $db->quote($difficulty));
+		}
 		
 		// Add the list ordering clause.
 		$orderCol  = $this->state->get('list.ordering', 'id');
@@ -205,7 +215,7 @@ class RecipesModel extends ListModel
 		
 		foreach ($items as $oneItem)
 		{
-					$oneItem->difficulty = !empty($oneItem->difficulty) ? Text::_('COM_WEB357TEST_RECIPES_DIFFICULTY_OPTION_' . preg_replace('/[^A-Za-z0-9\_-]/', '',strtoupper(str_replace(' ', '_',$oneItem->difficulty)))) : '';
+			$oneItem->difficulty = !empty($oneItem->difficulty) ? Text::_('COM_WEB357TEST_RECIPES_DIFFICULTY_OPTION_' . preg_replace('/[^A-Za-z0-9\_-]/', '',strtoupper(str_replace(' ', '_',$oneItem->difficulty)))) : '';
 		}
 
 		return $items;
