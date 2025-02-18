@@ -67,6 +67,11 @@ if (!$canEdit && Factory::getApplication()->getIdentity()->authorise('core.edit.
 			?></td>
 		</tr>
 
+		<tr>
+			<th><?php echo Text::_('COM_WEB357TEST_FORM_LBL_SERVING_SIZE'); ?></th>
+			<td><?php echo $this->item->serving_size; ?></td>
+		</tr>
+
 	</table>
 
 </div>

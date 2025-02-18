@@ -8,6 +8,15 @@
   <option value="hard">Hard</option>
 </field>
 
+      <!-- New Serving Size Field -->
+      <field name="serving_size" type="list" label="COM_WEB357TEST_FORM_LBL_SERVING_SIZE" description="COM_WEB357TEST_FORM_DESC_SERVING_SIZE" default="1-2 servings" hint="COM_WEB357TEST_FORM_LBL_SERVING_SIZE">
+          <option value="1-2 servings">1-2 servings</option>
+          <option value="2-4 servings">2-4 servings</option>
+          <option value="4-6 servings">4-6 servings</option>
+          <option value="6-8 servings">6-8 servings</option>
+          <option value="8+ servings">8+ servings</option>
+      </field>
+
     </fieldset>
 
     <fieldset name="permissions" description="JCONFIG_PERMISSIONS_DESC" label="JCONFIG_PERMISSIONS_LABEL">
