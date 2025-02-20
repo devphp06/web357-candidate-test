@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="module" version="4.0" client="site" method="upgrade">
+    <name>mod_web357_random_recipe</name>
+    <version>1.0.0</version>
+    <description>Displays a random recipe on each page reload</description>
+    <files>
+        <filename module="mod_web357_random_recipe">mod_web357_random_recipe.php</filename>
+        <filename>helper.php</filename>
+        <folder>tmpl</folder>
+    </files>
+    <params>
+        <param name="title" type="text" default="Random Recipe" label="Module Title" description="Title of the module" />
+    </params>
+</extension>
