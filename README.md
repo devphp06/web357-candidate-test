@@ -32,6 +32,9 @@
     Screenshots of new features
     Testing instructions
 
+21/02/2025
+- Fixed a bug in installing language files for module using package
+
 
 
 # Screenshots

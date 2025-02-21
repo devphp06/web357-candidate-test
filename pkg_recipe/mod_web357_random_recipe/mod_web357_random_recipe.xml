@@ -11,4 +11,8 @@
     <params>
         <param name="title" type="text" default="Random Recipe" label="Module Title" description="Title of the module" />
     </params>
+    <languages>
+        <language tag="en-GB">language/en-GB/en-GB.mod_web357_random_recipe.ini</language>
+        <language tag="en-GB">language/en-GB/en-GB.mod_web357_random_recipe.sys.ini</language>
+    </languages>
 </extension>
