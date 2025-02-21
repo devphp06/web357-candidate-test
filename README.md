@@ -35,6 +35,9 @@
 21/02/2025
 - Fixed a bug in installing language files for module using package
 
+21/02/2025
+- RandomRecipeTest Class final changes / Remove old deprectaed class from module helper
+
 
 
 # Screenshots

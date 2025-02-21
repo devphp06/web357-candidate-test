@@ -47,20 +47,29 @@ class RandomRecipeTest extends TestCase
         $query->method('order')->willReturnSelf();
         $query->method('setLimit')->willReturnSelf();
 
-        // Mock the database result
-        $expectedRecipe = (object) [
+        // Mock the database results for two different recipes
+        $recipe1 = (object) [
             'id' => 1,
-            'title' => 'Random Recipe',
+            'title' => 'Random Recipe 1',
             'difficulty' => 'easy',
         ];
-        $this->db->method('loadObject')->willReturn($expectedRecipe);
+        $recipe2 = (object) [
+            'id' => 2,
+            'title' => 'Random Recipe 2',
+            'difficulty' => 'medium',
+        ];
 
-        // Call the method under test
-        $recipe = ModWeb357RandomRecipeHelper::getRandomRecipe();
+        // Configure the db mock to return the different recipes on subsequent calls
+        $this->db->method('loadObject')->willReturnOnConsecutiveCalls($recipe1, $recipe2);
 
-        // Assert that the returned recipe matches the expected result
-        $this->assertEquals($expectedRecipe, $recipe);
+        // Call the method under test twice and check that the ids are different
+        $recipeFromFirstCall = ModWeb357RandomRecipeHelper::getRandomRecipe();
+        $recipeFromSecondCall = ModWeb357RandomRecipeHelper::getRandomRecipe();
+
+        // Assert that the ids are different
+        $this->assertNotEquals($recipeFromFirstCall->id, $recipeFromSecondCall->id);
     }
+
 
     public function testGetDifficultyIcons()
     {

@@ -1,12 +1,14 @@
 <?php
 defined('_JEXEC') or die;
 
+use Joomla\CMS\Factory;
+
 class ModWeb357RandomRecipeHelper
 {
     public static function getRandomRecipe()
     {
         // Get the database object
-        $db = JFactory::getDbo();
+        $db = Factory::getContainer()->get('DatabaseDriver');
 
         // Query to fetch a random recipe
         $query = $db->getQuery(true)
