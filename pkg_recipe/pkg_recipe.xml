@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="package" version="4.0" method="upgrade">
+    <name>Recipe Package</name>
+    <version>1.0.0</version>
+    <author>Dev</author>
+    <creationDate>2025-02-21</creationDate>
+    <description>Installs both the component and module</description>
+    <packagename>pkg_recipe</packagename>
+
+    <files folder="." >
+        <file type="component">com_web357test.zip</file>
+        <file type="module">mod_web357_random_recipe.zip</file>
+    </files>
+
+</extension>
